@@ -1,0 +1,28 @@
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <h3 class="title is-3">Recherche d'IP</h3>
+
+                <form [formGroup]="ipForm" (ngSubmit)="requete()">
+                    <div class="field">
+                        <label class="label">Saisie de l'IP</label>
+                        <div class="control">
+                            <p [ngClass]="{ 'has-error': isSubmitted && badIP }">
+                                <input class="input is-success" formControlName="ipv4" type="text" placeholder="">
+                            </p>
+                            <div *ngIf="isSubmitted && badIP" class="help-block">
+                                <div *ngIf="badIP">Une IP est demandée !</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link">Soumettre</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
